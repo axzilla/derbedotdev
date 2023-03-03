@@ -1,0 +1,113 @@
+---
+import Tools from "~/components/tools.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { ToolsItem } from "~/types";
+
+const tools: Array<ToolsItem> = [
+  {
+    title: "JavaScript",
+    icon: "javascript",
+    url: "https://www.javascript.com",
+  },
+  {
+    title: "TypeScript",
+    icon: "typescript",
+    url: "https://www.typescriptlang.org",
+  },
+  {
+    title: "Go",
+    icon: "go",
+    url: "https://go.dev",
+  },
+  {
+    title: "Flutter",
+    icon: "flutter",
+    url: "https://flutter.dev",
+  },
+  {
+    title: "React",
+    icon: "react",
+    url: "https://reactjs.org",
+  },
+  {
+    title: "Electron",
+    icon: "electron",
+    url: "https://nextjs.org",
+  },
+  {
+    title: "Next.js",
+    icon: "nextjs",
+    url: "https://nextjs.org",
+  },
+  {
+    title: "MongoDB",
+    icon: "mongodb",
+    url: "https://www.mongodb.com",
+  },
+  {
+    title: "PostgreSQL",
+    icon: "postgres",
+    url: "https://www.postgresql.org",
+  },
+  {
+    title: "Astro",
+    icon: "astro",
+    url: "https://astro.build",
+  },
+  {
+    title: "Svelte",
+    icon: "svelte",
+    url: "https://svelte.dev",
+  },
+  {
+    title: "Vue",
+    icon: "vue",
+    url: "https://vuejs.org",
+  },
+  {
+    title: "Node.js",
+    icon: "nodejs",
+    url: "https://nodejs.org",
+  },
+  {
+    title: "Auth0",
+    icon: "auth0",
+    url: "https://auth0.com",
+  },
+  {
+    title: "Docker",
+    icon: "docker",
+    url: "https://www.docker.com",
+  },
+  {
+    title: "DigitalOcean",
+    icon: "digitalocean",
+    url: "https://www.digitalocean.com",
+  },
+  {
+    title: "Vercel",
+    icon: "vercel",
+    url: "https://vercel.com",
+  },
+  {
+    title: "Firebase",
+    icon: "firebase",
+    url: "https://firebase.google.com",
+  },
+  {
+    title: "Netlify",
+    icon: "netlify",
+    url: "https://www.netlify.com",
+  },
+  {
+    title: "Heroku",
+    icon: "heroku",
+    url: "https://www.heroku.com",
+  },
+];
+---
+
+<ContentSection title="Werkzeuge." id="tools">
+  <Fragment slot="lead">Wähle eine Waffe.</Fragment>
+  <Tools items={tools} />
+</ContentSection>
