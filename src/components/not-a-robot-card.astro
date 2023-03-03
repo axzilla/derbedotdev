@@ -1,0 +1,37 @@
+---
+import { Picture } from "@astrojs/image/components";
+import type { NotARobotCard } from "~/types";
+
+export interface Props {
+  item: NotARobotCard;
+}
+
+const { item } = Astro.props;
+
+const widths = [800, 800];
+const sizes = "";
+---
+
+<a class="group hover:!text-default" href={item.image.src} target="_blank">
+  <figure class="relative h-full w-full overflow-hidden">
+    <Picture
+      class="object-cover transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+      src={item.image}
+      widths={widths}
+      sizes={sizes}
+      alt={`A screenshot of ${item.text}`}
+    />
+    <figcaption class="absolute inset-0">
+      <div
+        class="flex h-full flex-col items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
+      >
+        <h3
+          class="text-center font-bold uppercase text-pink-500 text-xs md:text-sm"
+        >
+          {item.title}
+        </h3>
+        <p class="px-6 text-center text-xs md:text-sm">{item.text}</p>
+      </div>
+    </figcaption>
+  </figure>
+</a>

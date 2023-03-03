@@ -1,0 +1,18 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import NotARobotCard from "~/components/not-a-robot-card.astro";
+import { getNotARobot } from "~/data/notarobot";
+
+const items = await getNotARobot();
+---
+
+<ContentSection title="Kein Roboter." id="notarobot">
+  <Fragment slot="lead">Das bin ich.</Fragment>
+  <div
+    class="max-w-4xl space-y-2 overflow-hidden rounded-lg border border-current"
+  >
+    <div class="grid grid-cols-2 md:grid-cols-4">
+      {items.map((item) => <NotARobotCard item={item} />)}
+    </div>
+  </div>
+</ContentSection>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  tag: string;
+  url?: string;
+}
+
+const { tag, url } = Astro.props;
+---
+
+{
+  url ? (
+    <a
+      class="whitespace-nowrap rounded-lg border border-current px-2 py-1"
+      href={url}
+    >
+      {tag}
+    </a>
+  ) : (
+    <span class="whitespace-nowrap rounded-lg border border-current px-2 py-1">
+      {tag}
+    </span>
+  )
+}
