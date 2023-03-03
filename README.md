@@ -1,4 +1,4 @@
-Hi, I'm Axel. 👋
+### Hi, I'm Axel. 👋
 
 I build custom and innovative software solutions that will blow you away. My passion is software that works - from concept to implementation. I'll help you determine which application is best for you and your users.
 
