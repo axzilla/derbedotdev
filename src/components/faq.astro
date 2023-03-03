@@ -1,0 +1,119 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import type { FaqItem } from "~/types";
+import Card from "~/components/card.astro";
+import { Icon } from "astro-icon";
+
+const features: Array<FaqItem> = [
+  {
+    question: "Selbst beigebracht? Kannst du überhaupt programmieren?",
+    answer:
+      "Self-taught-Developer. Bootcamp. Etwas lernen, was dich wirklich interessiert. Eigeninitiative erweckt ungeahnte Motivation und verborgenes Durchhaltevermögen. Ich mag es minimalistisch und brauche keine eingerahmten Diplome, die meine Wand zieren. Software soll funktionieren. Hier zählt das Können. Lern mich kennen.",
+  },
+  {
+    question: "Wie läuft eine Zusammenarbeit ab?",
+    answer:
+      "Reden. Planen. Umsetzen. Das Fundament einer guten Beziehung. Mir ist es wichtig, genau zu wissen, was deine Vision ist. Sag mir, was du haben möchtest. Ich sage dem Computer, was er tun soll. Von der Planung bis zur funktionierenden Software ist ein langer Weg. Hand in Hand schaffen wir das. Zusammen sind wir unschlagbar.",
+  },
+  {
+    question: "Wie sieht dein Tag als Entwickler aus?",
+    answer:
+      "Coden heißt nicht nur Code schreiben. Der größte Teil meiner Arbeit besteht aus Aufgabenmanagement, Architektur, Optimierung, Planung, Recherche, Testen von Code und dem Beheben von Bugs. Kurz gesagt, mein Tag als Entwickler ist abwechslungsreich und erfordert eine Kombination aus Kreativität, Planung und Problemlösung. Tonnenweise Kaffee und das Einarbeiten in neue Tools und Technologien gehört ebenfalls dazu.",
+  },
+  {
+    question: "Bist du so, wie du schreibst?",
+    answer:
+      "Ja. Norddeutsch halt. Nicht lange schnacken. Wenn du meinen Schreibstil sympathisch findest, haben wir den ersten Match. Ich schwimme gegen den Strom. Ich nehme kein Blatt vor den Mund. Wenn dir das passt, dann passt es mit uns. Lern mich kennen.",
+  },
+  {
+    question: "Benutzt du ChatGPT zum Programmieren?",
+    answer:
+      "Klar. Es wäre dumm, es nicht zu tun. ChatGPT ist der beste Mentor, den ich kenne, und er hilft mir, mich zu einem besseren Entwickler zu machen.",
+  },
+  {
+    question: "Warum hast du kein Social Media?",
+    answer:
+      "Social Media? Nein danke! Ich habe genug davon, ständig mit Katzenvideos und Selfies bombardiert zu werden. Stattdessen habe ich einen anonymen Reddit-Account für meine Softwareentwicklungs-Recherche und zum Abhängen mit anderen Programmierern. Wer braucht schon Instagram, wenn man Codevideos anschauen kann?",
+  },
+  {
+    question: "Was machst du, wenn du nicht codest?",
+    answer:
+      "Wenn ich nicht mit dem Schreiben von Code beschäftigt bin, findet man mich auf Schatzsuche mit meinem Unterwasser-Metalldetektor, beim Kochen leckerer Gerichte, beim Arbeiten an unserem Tiny House oder beim Reisen nach Chiang Mai. Kurz gesagt, ich nutze jede Gelegenheit, um das Leben zu genießen und neue Abenteuer zu erleben.",
+  },
+];
+---
+
+<ContentSection title="FAQ." id="faq">
+  <Fragment slot="lead">Wieso. Weshalb. Warum.</Fragment>
+  <div class="faq grid gap-4">
+    {
+      features.map(({ question, answer }) => {
+        return (
+          <Card>
+            <div class="faq-item">
+              <div class="faq-header flex flex-col items-start">
+                <div class="flex w-full items-center justify-between">
+                  <p class="text-start font-bold">{question}</p>
+                  <div>
+                    <Icon name="arrow" class="ml-auto h-8 text-pink-500" />
+                  </div>
+                </div>
+              </div>
+              <div class="faq-content b-6">
+                <br />
+                <span class="text-pink-500">#</span> {answer}
+              </div>
+            </div>
+          </Card>
+        );
+      })
+    }
+  </div>
+</ContentSection>
+
+<script>
+  function initFaq() {
+    const faqItems = document.querySelectorAll(".faq-item");
+    let activeIndex = -1;
+
+    faqItems.forEach((item, index) => {
+      const header = item.querySelector(".faq-header");
+      header?.addEventListener("click", () => {
+        if (activeIndex === index) {
+          item.classList.toggle("open");
+          activeIndex = -1;
+        } else {
+          faqItems[activeIndex]?.classList.remove("open");
+          item.classList.add("open");
+          activeIndex = index;
+        }
+      });
+    });
+  }
+  window.addEventListener("load", initFaq);
+</script>
+
+<style>
+  .faq-header {
+    display: flex;
+  }
+
+  .faq-header .ml-auto {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.open .faq-header .ml-auto {
+    transform: rotate(180deg);
+  }
+
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-item.open .faq-content {
+    max-height: 1000px;
+  }
+</style>

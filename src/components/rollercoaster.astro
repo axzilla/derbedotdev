@@ -1,0 +1,183 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import Tag from "~/components/tag.astro";
+import { Icon } from "astro-icon";
+import Card from "~/components/card.astro";
+import type { CvItem } from "~/types";
+
+const features: Array<CvItem> = [
+  {
+    items: [
+      "Mobile Entwickler iOS & Android bei umaversum reproductive health GmbH. Entwicklung für eine App aus dem Gesundheitswesen. Und Außerdem? Eierlegendewollmilchsau. Um Deployment und um vieles mehr kümmere ich mich.",
+    ],
+    date: "03/2022 - Jetzt",
+    tags: [
+      "Flutter",
+      "Android",
+      "iOS",
+      "Dart",
+      "Go",
+      "Docker",
+      "Node.js",
+      "Auth0",
+      "Azure",
+      "Sentry",
+      "Papertrail",
+      "Heroku",
+      "Scalingo",
+      "TDD",
+      "PostgreSQL",
+    ],
+  },
+  {
+    items: [
+      "Entwicklung einer Fullstack Web App. Auftrags- und Rechnungsabwicklung für mechanische Betriebe.",
+      "Zeitgleich war ich mit meiner Partnerin auf Reise durch Südostasien. Im Norden Thailands fühlte ich mich als Nordlicht sofort derbe heimisch. Chiang Mai ist die zweite Heimat geworden.",
+      "2020 war Corona nicht mehr nur ein Getränk. Reise abgebrochen. Keine Wohnung mehr. Nur noch zwei Kartons. Zuerst wohnten wir bei meinem Dad im Garten im Camper. Eine neue Idee entstand. Aus einer ehemaligen Doppelgarage bauten wir ein kleines aber feines Tiny Haus. 40qm ist alles was wir brauchen. Hier fühlen wir uns wohl.",
+    ],
+    date: "08/2019 - 03/2022",
+    tags: [
+      "Javascript",
+      "Typescript",
+      "React",
+      "Redux",
+      "MongoDB",
+      "Mongoose",
+      "Node.js",
+      "Express",
+      "DigitalOcean",
+    ],
+  },
+  {
+    items: [
+      "Ich bin ein selbstentwickelter Fullstack-Entwickler mit einer unkonventionellen Karriere. Für mein damaliges Unternehmen hat mir eine Software gefehlt. Ich war jung und hatte kein Geld. Da habe ich angefangen mir das Entwickeln von Software selber beizubringen.",
+      "Das fand ich derbe und wollte mein angewandtes Wissen noch weiter vertiefen. Ich schrieb mich ein um bei neuefische GmbH in Hamburg ein intensives 3-monatiges Fullstack-Javascript-Bootcamp zu absolvieren.",
+      "Der erste Job danach? Vue und Firebase-Entwickler. Ich bin kein 9-to-5-Typ und habe mich entschlossen, meinen eigenen Weg als freiberuflicher Entwickler zu gehen. Der zweite Job? Als Freelancer zu neuefische zurück um eine interne Job-Plattform für das Unternehmen zu entwickeln.",
+    ],
+    date: "07/2018 - 08/2019",
+    tags: [
+      "Vue",
+      "Vuex",
+      "Firebase",
+      "React",
+      "Redux",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+    ],
+  },
+  {
+    items: [
+      "Irgendwas im IT-Bereich? Klingt nice. Q&A und Reparatur von Laptops bei Acer. Akkordarbeit. Gefällt mir nicht. Geld mitgenommen. Weiter geht’s.",
+      "Service-Techniker und Filialleiter für Reparaturen von Unterhaltungselektronik bei Justcom Hamburg. Bringt mehr Spaß. Aber? Kann ich besser.",
+      "Gründung meines eigenen Reparaturunternehmens. Apfelbude. Reparaturen und Service für Apple Geräte. War geil. Fand Apple nicht so. Name ist irreführend. Branding ändern. Jetzt Reparaturhelden. Neuer Laden in einer Fußgängerzone. Zwei Mitarbeiter. Erfolg blieb aus. Penner pisst mir auf das Sofa im Wartebereich. Insolvenz. Macht nichts. Auf in die nächsten Abenteuer.",
+    ],
+    date: "02/2014 - 07/2018",
+    tags: ["IT", "Reparatur", "Service", "Unterhaltungselektronik", "Apple"],
+  },
+  {
+    items: [
+      "Musicproducer Ausbildung an der SAE Hamburg. Deutsche Pop Akademie Hamburg. Tonmeister Diplom zum einrahmen und an die Wand hängen. Praktikum beim House of Music & Entertainment GmbH & Co. KG. Eines der letzten großen Tonstudios Deutschlands.",
+      "Beatbastler im Keller alias Tonstudio eines Freundes. Wir dachten wir werden Stars. Keiner kann uns aufhalten. Wir haben den Power-Stern von Super Mario. Die Ernüchterung kam schnell. Die Zeit der Super-Producer war vorbei. Der Musikmarkt ist hart. Traum vorbei. Weiter gehts.",
+    ],
+    date: "02/2011 - 12/2013",
+    tags: ["Musicproduction", "Compressor", "EQ", "Filter", "Stereo"],
+  },
+  {
+    items: [
+      "Mittlerer Bildungsweg. Ausbildung zum KFZ-Mechnaniker. 'Min Jung - Mach mal was solides, erstmal ne Ausbildung' - haben sie gesagt. Nicht mein Ding. Trotzdem durchgezogen. Bocklos. Orientierungslos.",
+      "Und jetzt? Probier mal Zeitarbeit. Windeln verpacken. Schneckengift einpacken. Briefe sortieren. Heiße Metallteile pressen. Den Knopf drücken. Die Hölle. Schnell weg.",
+    ],
+    date: "08/2002 - 02/2011",
+    tags: [],
+  },
+];
+---
+
+<ContentSection title="Achterbahn." id="rollercoaster">
+  <Fragment slot="lead">Was bisher geschah.</Fragment>
+  <div class="grid gap-4">
+    {
+      features.map(({ date, tags, items }) => {
+        return (
+          <>
+            <Card className={"accordion-header"}>
+              <div class="accordion-item">
+                <div class="accordion-header flex flex-col items-start">
+                  <div class="flex w-full items-center justify-between">
+                    <p class="text-start">{date}</p>
+                    <Icon name="arrow" class="ml-auto h-8  text-pink-500" />
+                  </div>
+                </div>
+                <div class="accordion-content w-full">
+                  {items?.map((item) => {
+                    return (
+                      <p>
+                        <br />
+                        <span class="text-pink-500">#</span> {item}
+                      </p>
+                    );
+                  })}
+                  {tags.length > 0 && <br />}
+                  <div class="flex flex-wrap gap-2">
+                    {tags?.map((tag) => {
+                      return <Tag tag={tag} />;
+                    })}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </>
+        );
+      })
+    }
+  </div>
+</ContentSection>
+
+<script>
+  function initAccordion() {
+    const accordionItems = document.querySelectorAll(".accordion-item");
+    let activeIndex = -1;
+
+    accordionItems.forEach((item, index) => {
+      const header = item.querySelector(".accordion-header");
+      header?.addEventListener("click", () => {
+        if (activeIndex === index) {
+          item.classList.toggle("open");
+          activeIndex = -1;
+        } else {
+          accordionItems[activeIndex]?.classList.remove("open");
+          item.classList.add("open");
+          activeIndex = index;
+        }
+      });
+    });
+  }
+  window.addEventListener("load", initAccordion);
+</script>
+
+<style>
+  .accordion-header {
+    display: flex;
+  }
+
+  .accordion-header .ml-auto {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-item.open .accordion-header .ml-auto {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion-item.open .accordion-content {
+    max-height: 10000px;
+  }
+</style>

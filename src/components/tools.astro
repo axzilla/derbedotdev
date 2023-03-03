@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon";
+import type { ToolsItem } from "~/types";
+import Card from "~/components/card.astro";
+
+export interface Props {
+  items: Array<ToolsItem>;
+}
+
+const { items } = Astro.props;
+---
+
+<Card>
+  <ul class="grid grid-cols-2 gap-8 p-6 sm:grid-cols-3 md:grid-cols-4">
+    {
+      items.map((item) => (
+        <li>
+          <a
+            target="_blank"
+            class="flex flex-col items-center gap-2"
+            href={item.url}
+          >
+            <Icon class="h-12" name={item.icon} />
+            <span>{item.title}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Card>
