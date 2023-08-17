@@ -1,48 +1,39 @@
 ---
-import { Icon } from "astro-icon";
 import ContentSection from "~/components/content-section.astro";
-import type { FooterLink } from "~/types";
+
+export interface FooterLink {
+  title: string;
+  url: string;
+}
 
 const links: Array<FooterLink> = [
   {
     url: "mailto:moin@derbe.dev",
-    description: "Write me an E-Mail",
-    icon: "email",
+    title: "email",
   },
   {
     url: "https://github.com/DerbeDotDev",
-    description: "View on GitHub",
-    icon: "github",
+    title: "github",
   },
   {
     url: "https://www.xing.com/profile/Axel_Adrian025236/cv",
-    description: "View on Xing",
-    icon: "xing",
+    title: "xing",
   },
   {
     url: "https://www.linkedin.com/in/derbedotdev",
-    description: "View on LinkedIn",
-    icon: "linkedin",
+    title: "linkedin",
   },
 ];
 ---
 
-<ContentSection title="Das wars." id="">
-  <Fragment slot="lead">
-    Lass uns deine Vision zum Leben erwecken. Schreib mir. Sonst sonst setze ich
-    einen Infinite Loop auf dich an.
-  </Fragment>
-  <ul class="relative grid grid-cols-4 gap-4">
+<ContentSection title="Das wars" id="">
+  <ul class="relative flex gap-4">
     {
       links.map((link) => (
         <li>
-          <a
-            class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4"
-            href={link.url}
-            target="_blank"
-          >
-            <span class="sr-only">{link.description}</span>
-            <Icon class="h-full" name={link.icon} />
+          <a href={link.url} target="_blank">
+            <span class="text-pink-500">#</span>
+            {link.title}
           </a>
         </li>
       ))

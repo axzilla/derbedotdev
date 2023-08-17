@@ -1,113 +1,75 @@
 ---
 import Tools from "~/components/tools.astro";
 import ContentSection from "~/components/content-section.astro";
-import type { ToolsItem } from "~/types";
+
+export interface ToolsItem {
+  title: string;
+  url: string;
+}
 
 const tools: Array<ToolsItem> = [
   {
     title: "Go",
-    icon: "go",
     url: "https://go.dev",
   },
   {
     title: "JavaScript",
-    icon: "javascript",
     url: "https://www.javascript.com",
   },
   {
     title: "TypeScript",
-    icon: "typescript",
     url: "https://www.typescriptlang.org",
   },
   {
     title: "Flutter",
-    icon: "flutter",
     url: "https://flutter.dev",
   },
   {
     title: "React",
-    icon: "react",
     url: "https://reactjs.org",
   },
   {
     title: "Next.js",
-    icon: "nextjs",
     url: "https://nextjs.org",
   },
   {
     title: "Electron",
-    icon: "electron",
     url: "https://nextjs.org",
   },
   {
     title: "PostgreSQL",
-    icon: "postgres",
     url: "https://www.postgresql.org",
   },
   {
     title: "MongoDB",
-    icon: "mongodb",
     url: "https://www.mongodb.com",
   },
   {
     title: "Astro",
-    icon: "astro",
     url: "https://astro.build",
   },
   {
     title: "Svelte",
-    icon: "svelte",
     url: "https://svelte.dev",
   },
   {
     title: "Vue",
-    icon: "vue",
     url: "https://vuejs.org",
   },
   {
     title: "Node.js",
-    icon: "nodejs",
     url: "https://nodejs.org",
   },
   {
     title: "Docker",
-    icon: "docker",
     url: "https://www.docker.com",
-  },
-  {
-    title: "DigitalOcean",
-    icon: "digitalocean",
-    url: "https://www.digitalocean.com",
-  },
-  {
-    title: "Vercel",
-    icon: "vercel",
-    url: "https://vercel.com",
-  },
-  {
-    title: "Firebase",
-    icon: "firebase",
-    url: "https://firebase.google.com",
-  },
-  {
-    title: "Netlify",
-    icon: "netlify",
-    url: "https://www.netlify.com",
-  },
-  {
-    title: "Heroku",
-    icon: "heroku",
-    url: "https://www.heroku.com",
-  },
-  {
-    title: "Shopify",
-    icon: "shopify",
-    url: "https://www.shopify.dev",
   },
 ];
 ---
 
-<ContentSection title="Werkzeuge." id="tools">
-  <Fragment slot="lead">Wähle eine Waffe aus meiner sich ständig erweiternden Zauberbox.</Fragment>
+<ContentSection title="Werkzeuge" id="tools">
+  <Fragment slot="lead">
+    Wähle eine Waffe aus meiner sich ständig erweiternden Zauberbox.
+  </Fragment>
   <Tools items={tools} />
 </ContentSection>
