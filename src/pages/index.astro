@@ -6,6 +6,7 @@ import NotARobot from "~/components/not-a-robot.astro";
 import Rollercoaster from "~/components/rollercoaster.astro";
 import Faq from "~/components/faq.astro";
 import End from "~/components/end.astro";
+import Cowsay from "~/components/cowsay.astro";
 ---
 
 <BaseLayout>
@@ -13,20 +14,7 @@ import End from "~/components/end.astro";
   <Tools />
   <Rollercoaster />
   <NotARobot />
-  <Faq />
-  <div class="flex justify-center">
-    <pre>
-    *─────────────*
-    | I USE ARCH  |
-    | BTW         |
-    *─────────────*
-          o
-           o   ^__^
-            o  (oo)\_______
-               (__)\       )\/\
-                   ||----w |
-                   ||     ||
-  </pre>
-  </div>
+  <!-- <Faq /> -->
+  <Cowsay />
   <End />
 </BaseLayout>

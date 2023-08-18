@@ -1,9 +1,24 @@
 ---
 import ContentSection from "~/components/content-section.astro";
 import Card from "~/components/card.astro";
+
+import { Picture } from "@astrojs/image/components";
+import meImage from "~/assets/me.png";
+
+const widths = [150];
+const sizes = "150px";
 ---
 
 <ContentSection title="Moin Welt" id="moin">
+  <Picture
+    src={meImage}
+    widths={widths}
+    sizes={sizes}
+    loading="eager"
+    alt="Thats me."
+    class="rounded-full border border-current"
+  />
+
   <Fragment slot="lead">Ich bin Axel.</Fragment>
   <Card>
     <p text-offset>

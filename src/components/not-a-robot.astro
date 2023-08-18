@@ -1,6 +1,6 @@
 ---
+import { Picture } from "@astrojs/image/components";
 import ContentSection from "~/components/content-section.astro";
-import NotARobotCard from "~/components/not-a-robot-card.astro";
 import { getNotARobot } from "~/data/notarobot";
 
 const items = await getNotARobot();
@@ -8,11 +8,32 @@ const items = await getNotARobot();
 
 <ContentSection title="Kein Roboter" id="notarobot">
   <Fragment slot="lead">Das bin ich.</Fragment>
-  <div
-    class="max-w-4xl space-y-2 overflow-hidden rounded-lg border border-current"
-  >
-    <div class="grid grid-cols-2 md:grid-cols-4">
-      {items.map((item) => <NotARobotCard item={item} />)}
+  <div class="max-w-4xl space-y-2">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+      {
+        items.map((item) => (
+          <div>
+            <a href={item.image.src} target="_blank">
+              <div class="overflow-hidden rounded-full border border-current">
+                <Picture
+                  class="h-150 w-full object-cover"
+                  src={item.image}
+                  alt={`A screenshot of ${item.text}`}
+                  loading="eager"
+                  widths={[150]}
+                  sizes="150px"
+                />
+              </div>
+            </a>
+            <div class="mt-2 text-center">
+              <h3 class="font-bold text-pink-500 text-xs md:text-sm">
+                {item.title}
+              </h3>
+              <p class="px-6 text-xs md:text-sm">{item.text}</p>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </ContentSection>
