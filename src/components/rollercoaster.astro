@@ -1,6 +1,5 @@
 ---
 import ContentSection from "~/components/content-section.astro";
-import Tag from "~/components/tag.astro";
 import { Icon } from "astro-icon";
 import Card from "~/components/card.astro";
 import type { CvItem } from "~/types";
@@ -115,15 +114,18 @@ const features: Array<CvItem> = [
                     return (
                       <p>
                         <br />
-                        <span class="text-pink-500">#</span> {item}
+                        <span class="text-pink-500">&gt;_</span> {item}
                       </p>
                     );
                   })}
                   {tags.length > 0 && <br />}
                   <div class="flex flex-wrap gap-2">
-                    {tags?.map((tag) => {
-                      return <Tag tag={tag} />;
-                    })}
+                    {tags?.map((tag) => (
+                      <>
+                        <span class="text-pink-500">#</span>
+                        {tag}
+                      </>
+                    ))}
                   </div>
                 </div>
               </div>
