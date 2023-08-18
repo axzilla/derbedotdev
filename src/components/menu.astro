@@ -14,7 +14,7 @@ const navItems: Array<NavItem> = [
 
 <header
   id="page-header"
-  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-default px-8 py-4 text-white"
+  class="fixed top-0 z-20 flex w-full items-center justify-between border-b border-default bg-default px-8 py-4 text-default"
 >
   <a href="#">
     <Icon name="logomark" class="h-12" />
@@ -26,9 +26,8 @@ const navItems: Array<NavItem> = [
           {
             navItems.map(({ title, url }) => (
               <li>
-                <a class="text-sm font-bold" href={url}>
+                <a class="font-bold text-sm" href={url}>
                   {title}
-                  <span class="text-pink-500">.</span>
                 </a>
               </li>
             ))
@@ -108,11 +107,6 @@ const navItems: Array<NavItem> = [
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
 
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
-
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
       closeMenu();
@@ -129,10 +123,6 @@ const navItems: Array<NavItem> = [
 </noscript>
 
 <style>
-  .fixed-header {
-    @apply fixed top-0 bottom-auto;
-    @apply border-default bg-default text-default;
-  }
   .modal.is-open {
     @apply block;
   }
