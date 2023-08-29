@@ -14,7 +14,7 @@ const items = await getNotARobot();
         items.map((item) => (
           <div>
             <a href={item.image.src} target="_blank">
-              <div class="overflow-hidden rounded-full border border-current">
+              <div class="overflow-hidden rounded-lg border border-current">
                 <Picture
                   class="h-150 w-full object-cover"
                   src={item.image}

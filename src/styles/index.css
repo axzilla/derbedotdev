@@ -1,2 +1,20 @@
-@import "global.css";
-@import "theme.css";
+[data-theme="light"] {
+  --color-primary: #FF6699; /* Pink */
+  --color-secondary: #4C6EF5; /* Indigo */
+  --color-text: #3E3E3E; /* Dunkelgrau */
+  --color-text-offset: #7E7E7E; /* Mittelgrau */
+  --color-background: #FAF3E0; /* Beige/Creme */
+  --color-background-offset: #EDE3C9; /* Helleres Beige/Creme */
+  --color-border: rgba(62, 62, 62, 0.1); /* Dunkelgrauer Rand */
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --color-primary: #FF66CC; /* Pink */
+  --color-secondary: #7094DB; /* Indigo */
+  --color-text: #C0C0C0; /* Silber-Grau */
+  --color-text-offset: #9A9A9A; /* Dunkles Grau */
+  --color-background: #1A1A1A; /* Fast Schwarz */
+  --color-background-offset: #2E2E2E; /* Dunkleres Grau */
+  --color-border: rgba(192, 192, 192, 0.1); /* Silber-Grauer Rand */
+}

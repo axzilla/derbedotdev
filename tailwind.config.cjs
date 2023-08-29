@@ -5,8 +5,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Rubik", ...defaultTheme.fontFamily.sans],
-                // sans: [ ...defaultTheme.fontFamily.mono],
+                sans: ["Courier New", ...defaultTheme.fontFamily.mono],
             },
             colors: {
                 primary: "var(--color-primary)",
