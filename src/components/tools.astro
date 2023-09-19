@@ -1,10 +1,8 @@
 ---
-import { Icon } from "astro-icon";
-import type { ToolsItem } from "~/types";
 import Card from "~/components/card.astro";
 
 export interface Props {
-  items: Array<ToolsItem>;
+  items: Array<string>;
 }
 
 const { items } = Astro.props;
@@ -14,12 +12,10 @@ const { items } = Astro.props;
   <ul class="flex flex-wrap gap-2">
     {
       items.map((item) => (
-        <li>
-          <a target="_blank" href={item.url} class="text-lowercase">
-            <span class="text-pink-500">#</span>
-            {item.title.toLowerCase().replace(/\./g, "_")}
-          </a>
-        </li>
+        <>
+          <span class="text-pink-500">#</span>
+          {item}
+        </>
       ))
     }
   </ul>

@@ -5,11 +5,6 @@ export interface CvItem {
     items: string[];
 }
 
-export interface FaqItem {
-    question: string;
-    answer: string;
-}
-
 export interface NavItem {
     title: string;
     url: string;

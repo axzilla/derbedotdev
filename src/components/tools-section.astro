@@ -2,74 +2,24 @@
 import Tools from "~/components/tools.astro";
 import ContentSection from "~/components/content-section.astro";
 
-export interface ToolsItem {
-  title: string;
-  url: string;
-}
-
-const tools: Array<ToolsItem> = [
-  {
-    title: "Go",
-    url: "https://go.dev",
-  },
-  {
-    title: "JavaScript",
-    url: "https://www.javascript.com",
-  },
-  {
-    title: "TypeScript",
-    url: "https://www.typescriptlang.org",
-  },
-  {
-    title: "Flutter",
-    url: "https://flutter.dev",
-  },
-  {
-    title: "React",
-    url: "https://reactjs.org",
-  },
-  {
-    title: "Next.js",
-    url: "https://nextjs.org",
-  },
-  {
-    title: "Electron",
-    url: "https://nextjs.org",
-  },
-  {
-    title: "PostgreSQL",
-    url: "https://www.postgresql.org",
-  },
-  {
-    title: "MongoDB",
-    url: "https://www.mongodb.com",
-  },
-  {
-    title: "Astro",
-    url: "https://astro.build",
-  },
-  {
-    title: "Svelte",
-    url: "https://svelte.dev",
-  },
-  {
-    title: "Vue",
-    url: "https://vuejs.org",
-  },
-  {
-    title: "Node.js",
-    url: "https://nodejs.org",
-  },
-  {
-    title: "Docker",
-    url: "https://www.docker.com",
-  },
+const tools: Array<string> = [
+  "Go",
+  "JavaScript",
+  "TypeScript",
+  "Flutter",
+  "React",
+  "Next.js",
+  "Electron",
+  "PostgreSQL",
+  "MongoDB",
+  "Astro",
+  "Svelte",
+  "Vue",
+  "Node.js",
+  "Docker",
 ];
 ---
 
 <ContentSection title="Werkzeuge" id="tools">
-  <Fragment slot="lead">
-    Wähle eine Waffe aus meiner sich ständig erweiternden Zauberbox.
-  </Fragment>
   <Tools items={tools} />
 </ContentSection>
